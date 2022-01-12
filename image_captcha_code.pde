@@ -18,8 +18,8 @@ void generate(String folder, int count){
   JSONArray json = new JSONArray();
   
   for (int x = 0; x < count; x++){
-    background(255);
-    fill(0);
+    background(255);  // background color
+    fill(0);          // text color
     JSONObject j = new JSONObject();
     String k = str(int(random(1000, 10000)));
     String v = str(int(random(1000, 10000)));
