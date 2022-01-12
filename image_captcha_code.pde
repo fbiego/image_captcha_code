@@ -3,7 +3,7 @@ int no_of_images = 50;
 
 void setup(){
 
-  size(300, 300, P2D);
+  size(300, 300);
   smooth();
 
   String timeNow = year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
