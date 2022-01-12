@@ -1,12 +1,13 @@
 
+int no_of_images = 50;
 
 void setup(){
 
   size(300, 300, P2D);
   smooth();
 
-  String timeNow  =year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
-  generate(timeNow, 50);
+  String timeNow = year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
+  generate(timeNow, no_of_images);
   
   
 }
