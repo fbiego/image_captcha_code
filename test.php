@@ -1,9 +1,10 @@
 <?php
 
-//	/public_html/
+//	/public_html/test.php
 //	/verify/
 
-$dir = "../validation/";
+$dir = "../verify/";
+
 $json = json_decode(file_get_contents( $dir . "mapping.json") , true);
 $c = count($json) - 1;
 
