@@ -15,7 +15,6 @@ void setup(){
 void generate(String folder, int count){
   
   JSONArray json = new JSONArray();
-  String[] s = new String[count]; 
   
   for (int x = 0; x < count; x++){
     background(255);
