@@ -5,7 +5,7 @@ void setup(){
 
   size(300, 300);
   smooth();
-
+  
   String timeNow = year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
   generate(timeNow, no_of_images);
   
@@ -13,7 +13,7 @@ void setup(){
 }
 
 void noise(){
-  background(255);  // background color
+  
   fill(0);          
   stroke(0);        
   strokeWeight(2);
@@ -39,6 +39,7 @@ void generate(String folder, int count){
   JSONArray json = new JSONArray();
   
   for (int x = 0; x < count; x++){
+    background(255);  // background color
     noise();    // generate random lines & dots
     fill(255);  // text color
     JSONObject j = new JSONObject();
