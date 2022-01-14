@@ -7,8 +7,8 @@ void setup(){
   smooth();
   
   String timeNow = year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
-  generate(timeNow, no_of_images);
-  
+  //generate(timeNow, no_of_images);
+  scramble("1234");
   
 }
 
@@ -33,18 +33,33 @@ void noise(){
   
 }
 
+void scramble(String code){
+  background(255);  // background color
+  noise();    // generate random lines & dots
+  fill(200);  // text color
+  textAlign(CENTER, CENTER);
+  textSize(80);
+  //text(code, 150, 150);
+  text(code.charAt(0), 75, randI(100, 200));
+  text(code.charAt(1), 125, randI(100, 200));
+  text(code.charAt(2), 175, randI(100, 200));
+  text(code.charAt(3), 225, randI(100, 200));
+}
+
+int randI(int min, int max){
+  return int(random(min, max));
+}
+
 
 void generate(String folder, int count){
   
   JSONArray json = new JSONArray();
   
   for (int x = 0; x < count; x++){
-    background(255);  // background color
-    noise();    // generate random lines & dots
-    fill(255);  // text color
+    
     JSONObject j = new JSONObject();
-    String k = str(int(random(1000, 10000)));
-    String v = str(int(random(1000, 10000)));
+    String k = str(randI(1000, 10000));
+    String v = str(randI(1000, 10000));
     
     File f = dataFile("generated/" + folder + "/" + k +".jpg");
     boolean exist = f.isFile();
@@ -55,9 +70,7 @@ void generate(String folder, int count){
     }
     j.setString(k, v);
     json.setJSONObject(x, j);
-    textAlign(CENTER, CENTER);
-    textSize(100);
-    text(v, 150, 150);
+    scramble(v);
     save("generated/" + folder + "/" + k +".jpg");
   }
   saveJSONArray(json, "generated/" + folder + "/mapping.json");
