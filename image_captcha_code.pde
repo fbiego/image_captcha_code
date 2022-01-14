@@ -8,8 +8,7 @@ void setup(){
   colorMode(HSB, 360, 100, 100);
   
   String timeNow = year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
-  //generate(timeNow, no_of_images);
-  scramble("1234");
+  generate(timeNow, no_of_images);
   
 }
 
@@ -39,15 +38,27 @@ void scramble(String code){
   noise();    // generate random lines & dots
   fill(randC(100));  // text color
   textAlign(CENTER, CENTER);
-  textSize(80);
-  //text(code, 150, 150);
-  text(code.charAt(0), 75, randI(100, 200));
+  rotateChar(code.charAt(0), 75); 
+  rotateChar(code.charAt(1), 125); 
+  rotateChar(code.charAt(2), 175); 
+  rotateChar(code.charAt(3), 225); 
+}
+
+void rotateChar(char c, int x){
   fill(randC(100));
-  text(code.charAt(1), 125, randI(100, 200));
+  textSize(randI(70, 100));
+  int r = randI(-30, 30);
+  int y = randI(100, 200);
+  pushMatrix();
+  translate(x, y);
+  rotate(radians(r));
+  pushMatrix();
+  text(c, 0, 0);
   fill(randC(100));
-  text(code.charAt(2), 175, randI(100, 200));
-  fill(randC(100));
-  text(code.charAt(3), 225, randI(100, 200));
+  popMatrix();
+  rotate(radians(r * -1));
+  translate(x * -1, y * -1);
+  popMatrix();
 }
 
 int randI(int min, int max){
