@@ -5,6 +5,7 @@ void setup(){
 
   size(300, 300);
   smooth();
+  colorMode(HSB, 360, 100, 100);
   
   String timeNow = year() +""+month() + "" + day() + "_" +hour() + "" +minute() + ""+ second();
   //generate(timeNow, no_of_images);
@@ -34,9 +35,9 @@ void noise(){
 }
 
 void scramble(String code){
-  background(255);  // background color
+  background(360);  // background color
   noise();    // generate random lines & dots
-  fill(200);  // text color
+  fill(randC());  // text color
   textAlign(CENTER, CENTER);
   textSize(80);
   //text(code, 150, 150);
@@ -48,6 +49,10 @@ void scramble(String code){
 
 int randI(int min, int max){
   return int(random(min, max));
+}
+
+color randC(){
+  return color(randI(0, 360), 100, 100);
 }
 
 
